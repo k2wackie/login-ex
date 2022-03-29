@@ -24,7 +24,7 @@ function login() {
   // .then((res) => console.log(res));
   // .then(console.log);
   .then((res) => {
-    if(res.sucess) {
+    if(res.success) {
       location.href = "/";
     } else {
       alert(res.msg);
