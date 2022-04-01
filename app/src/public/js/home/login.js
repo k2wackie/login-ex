@@ -8,12 +8,14 @@ loginBtn.addEventListener("click", login);
 
 function login(e) {
   e.preventDefault();
+  if(!id.value) return alert("아이디를 입력해주세요.")
+  if(!psword.value) return alert("비밀번호가 일치 하지 않습니다."); 
+
   const req = {
     id: id.value,
     psword: psword.value,
   }; 
   
-  // console.log(req, JSON.stringify(req));
   fetch("/login", {
     method: "POST",
     headers: {
@@ -22,12 +24,11 @@ function login(e) {
     body: JSON.stringify(req),
   })
   .then((res) => res.json())
-  // .then((res) => console.log(res));
-  // .then(console.log);
   .then((res) => {
     if(res.success) {
       location.href = "/";
     } else {
+      if(res.err) return alert(res.err);
       alert(res.msg);
     }
   })

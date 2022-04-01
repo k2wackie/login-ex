@@ -51,4 +51,8 @@ if(process.env.NODE_ENV !== "produciton") {
   logger.add(opts.console);
 }
 
+logger.stream = {
+  write: (message) => logger.info(message),
+}
+
 module.exports = logger;
