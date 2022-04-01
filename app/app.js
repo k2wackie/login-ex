@@ -1,9 +1,11 @@
 "use strict";
 //module
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
+
 const app = express();
 
-const PORT = 3000;
 //routing
 const home = require("./src/routes/home");
 
